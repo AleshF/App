@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Pregled uporabnikov</title>
+  <base href="/">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+<h1 class="display-5 text-center">Pregled uporabnikov</h1>
+<table>
+  <thead>
+    <th>Ime</th>
+    <th>Priimek</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let uporabnik of user">
+      <td><input type="text" pInputText disabled="true" [(ngModel)]="uporabnik.ime" /></td>
+      <td><input type="text" pInputText disabled="true" [(ngModel)]="uporabnik.priimek" /></td>
+      <td>
+		<button pButton type="button" label="več..." (click)="onEdit(uporabnik)" [routerLink]="['/edit']"></button>
+		</td>
+		<td>
+        <button pButton type="button" label="izbriši"  (click)="onDelete(uporabnik)" ></button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<div><button pButton type="button" label="kreiraj uporabnika" [routerLink]="['/add']"></button></div>
+<br>
+<div class="error" *ngIf="message">
+    <h5 class="text">{{ message }}</h5>
+</div>
+<router-outlet></router-outlet>
+</body>
+</html>

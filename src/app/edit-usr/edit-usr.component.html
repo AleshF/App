@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Podrobnosti uporabnika</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+
+<h1 class="display-5 text-center">Podrobnosti</h1>
+<div>
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)" novalidate>
+	<input type="hidden" name="id" #id="ngModel" [(ngModel)]="uporabnikService.obrazec.id">
+		<span class="p-float-label">
+		<input id="ime" type="text" pInputText name="ime" #ime="ngModel" [(ngModel)]="uporabnikService.obrazec.ime" class="form-control" required> 
+		<label for="ime">Ime</label>
+		<div *ngIf="ime.invalid && ime.touched" class="validation-error">Ime je obvezen podatek.</div>
+		</span>
+		<br>
+		<span class="p-float-label">
+		<input id="priimek" type="text" pInputText name="priimek" #priimek="ngModel" [(ngModel)]="uporabnikService.obrazec.priimek" class="form-control" required> 
+		<label for="priimek">Priimek</label>
+		<div *ngIf="priimek.invalid && priimek.touched" class="validation-error">Priimek je obvezen podatek.</div>
+		</span>
+		<br>
+		<span class="p-float-label">
+		<input id="tel" type="text" pInputText name="tel" #tel="ngModel" [(ngModel)]="uporabnikService.obrazec.tel"> 
+		<label for="tel">tel.</label>
+		</span>
+		<br>
+		<span class="p-float-label">
+		<input id="rDatum" type="text" pInputText name="rDatum" #rDatum="ngModel" [(ngModel)]="uporabnikService.obrazec.rDatum"> 
+		<label for="rDatum">Rojstni datum</label>
+		</span>
+		<br>
+		<span class="p-float-label">
+		<input id="naslov" type="text" pInputText name="naslov" #naslov="ngModel" [(ngModel)]="uporabnikService.obrazec.naslov"> 
+		<label for="naslov">Naslov</label>
+		</span>
+		<br>
+		<span class="p-float-label">
+		<input id="posta" type="text" pInputText name="posta" #posta="ngModel" [(ngModel)]="uporabnikService.obrazec.posta"> 
+		<label for="posta">Poštna št.</label>
+		</span>
+		<br>
+		<span class="p-float-label">
+		<input id="email" type="text" pInputText name="email" #email="ngModel" [(ngModel)]="uporabnikService.obrazec.email"> 
+		<label for="email">E-pošta</label>
+		</span>
+		<br>
+		<button type="submit" pButton label="Shrani"></button>
+    </form>
+</div>
+<br>
+<div>
+	<button [routerLink]="['/']" pButton label="Zapri"></button>
+</div>
+</body>
+</html>

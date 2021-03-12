@@ -1,0 +1,15 @@
+body {
+	padding:15px;
+}
+
+.p-float-label {
+	margin-bottom:10px;
+}
+
+.validation-error {
+	margin-top:2px;
+}
+
+#zapri{
+	margin-left:10px;
+}
